@@ -1,0 +1,81 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation e.g. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Documentation	Testing creation project page by creating blank project and creating project from template. Testing also
+includes creating issue for the project and deleting project.
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	User have logged in to site and navigated to create new project site.
+Post Condition	User have created project, made issue for the project and deleted project
+Tags
+create-project, delete-project, create-issue
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+Newprojectsite = https://gitlab.com/projects/new
+projectname = Name given to project name
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create blank project
+	Create template project 
+	Update name of template project
+	Delete template project
+	Valide that message is showing Project 'First project ' was successfully created.
+
+Creating blank project
+	User navigate to Newprojectsite
+	User click Create blank project
+	User names the project
+	User Create project by clicking "create project" box.
+	Message pop up on site "Project 'projectname' was successfully created."
+
+Creating project from template
+	User navigate to Newprojectsite
+	User click Create from template
+	User click template what wanted
+	User names project
+	User Create project by clicking "create project" box.
+	Message pop up on site "The project was successfully imported."
+
+Deleting project
+	User navigate to setting -> general
+	Now user sees project name
+	User scroll down
+	Expand advanced settings by clicking Expand box
+	User scroll down to the bottom of the page
+	User click delete project
+	User need to write project name at text box
+	User click "Yes, delete project"
+	Now message shows up "Project 'user / projectname-deleted-52725210' will be deleted on 2023-12-10"
+
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+
+Creating blank project with name that already exist
+	User navigate to Newprojectsite
+	User click Create blank project
+	User names the project with exist name
+	User Create project by clicking "create project" box.
+	Error message pop up on site: 
+	"The form contains the following errors:
+	Project namespace name has already been taken
+	Name has already been taken
+	Path has already been taken"

@@ -1,0 +1,65 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+# TODO: Write Precondition and Postcondition, Tags 
+
+Pre Condition	Project needs to exist. User have logged in to site and navigated to projectissues site.
+Post Condition	User have creted issues to the project
+Tags Issues, Issues-page, Deleting-issue 
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Issue creation field variables, Updated name of the issue
+
+projectissues = https://gitlab.com/mikaeltest/ekaprojekti/-/issues
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create issue,
+ 	Update name of issue, 
+	Create second issue with privious updated name
+    Delete first issue
+
+Creating issue for project
+	User navigate to Issues site at the menu bar below project name.
+	User clicks New issue
+	User fills Title
+	User clicks create issue
+	Now user have created issue and the issue status is open
+
+Update name of issue
+	User navigate to projectissues site
+	User clicks Issue that needs to be edited
+	User clicks Edit box
+	User can now change the name of the issue
+	User save changes by clicking "Save changes" box
+
+Delete issue
+	User navigate to projectissues site
+	User clicks Issue that needs to be deleted
+	User clicks 3 dots icon next to edit box
+	User choose "Delete issue"
+	User clicks pop up windows "Delete issue" box 
+	Message "The issue was successfully deleted." shows up
+
+Uploading picture to the issue
+	User navigate to projectissues site
+	Click the project where the user wants to upload picture
+	User drags file from the computer to text box bottom of the page
+	Text shows up at the comment section
+	User clicks comment
+	Now the picture shows up at the issue pages comment box
